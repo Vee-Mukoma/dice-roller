@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+</head>
+<body>
+    <header>
+        <h1>Dice Roller</h1>
+        <p>Welcome to dice roller. Roll the dice and have some fun!!!</p>
+    </header>
+
+    <section id="form">
+        <div class="dice-number">
+            <label for="numDice">How many dice would you like to roll?:</label>
+            <input type="number" id="numDice" name="numDice" min="1" max="10" value="1"><br><br>
+        </div>
+
+        <div class="dice-type">
+            <label for="diceType">Select the type of dice:</label>
+            <select id="diceType" name="diceType">
+                <option value="4">D4</option>
+                <option value="6" selected>D6</option>
+                <option value="8">D8</option>
+                <option value="10">D10</option>
+                <option value="12">D12</option>
+                <option value="20">D20</option>
+            </select>
+        </div>
+    </section><br>
+
+    <button id="rollButton">Roll the Dice</button>
+
+    <section id="results">
+        <h2>Results:</h2>
+        <p id="rollResults"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Dice Roller. All rights reserved.</p>
+    </footer>
+</body>
+</html>
