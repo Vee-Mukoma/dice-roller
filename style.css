@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600&display=swap');
+
+:root {
+    --bg:         #0a0a0f;
+    --surface:    #12121a;
+    --card:       #1a1a2e;
+    --neon-green: #00ff88;
+    --neon-blue:  #00d4ff;
+    --neon-pink:  #ff006e;
+    --white:      #ffffff;
+    --muted:      #8888aa;
+    --border:     #2a2a4a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--white);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: 
+        radial-gradient(ellipse at 20% 20%, rgba(0,255,136,0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(0,212,255,0.05) 0%, transparent 50%);
+}
+
+/* ── HEADER ──────────────────────────────*/
+header {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    position: relative;
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-shadow: 
+        0 0 10px var(--neon-green),
+        0 0 30px var(--neon-green),
+        0 0 60px var(--neon-green);
+    animation: flicker 4s infinite;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 0.8rem;
+}
+
+/* ── FLICKER ANIMATION ───────────────────*/
+@keyframes flicker {
+    0%, 95%, 100% { opacity: 1; }
+    96% { opacity: 0.8; }
+    97% { opacity: 1; }
+    98% { opacity: 0.6; }
+    99% { opacity: 1; }
+}
+
+/* ── FORM SECTION ────────────────────────*/
+#form {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
+    position: relative;
+    box-shadow: 
+        0 0 20px rgba(0,255,136,0.1),
+        inset 0 0 20px rgba(0,0,0,0.3);
+}
+
+#form::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--neon-green), var(--neon-blue), var(--neon-pink));
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* ── FORM GROUPS ─────────────────────────*/
+.dice-number,
+.dice-type {
+    margin-bottom: 1.8rem;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--neon-green);
+    margin-bottom: 0.6rem;
+}
+
+/* ── INPUTS ──────────────────────────────*/
+input[type="number"],
+select {
+    width: 100%;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.9rem 1rem;
+    color: var(--white);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 10px rgba(0,255,136,0.3);
+}
+
+select option {
+    background-color: var(--surface);
+}
+
+/* ── ROLL BUTTON ─────────────────────────*/
+#rollButton {
+    width: 100%;
+    background: transparent;
+    border: 2px solid var(--neon-green);
+    border-radius: 4px;
+    color: var(--neon-green);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+
+#rollButton::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--neon-green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+#rollButton:hover {
+    color: var(--bg);
+    box-shadow: 0 0 20px rgba(0,255,136,0.5);
+}
+
+#rollButton:hover::before {
+    transform: scaleX(1);
+}
+
+#rollButton:active {
+    transform: scale(0.98);
+}
+
+/* ── RESULTS SECTION ─────────────────────*/
+#results {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0,212,255,0.1);
+}
+
+#results h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+}
+
+#rollResults {
+    color: var(--muted);
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+}
+
+/* ── FOOTER ──────────────────────────────*/
+footer {
+    margin-top: auto;
+    padding: 2rem;
+    text-align: center;
+    color: var(--border);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
