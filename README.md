@@ -29,7 +29,7 @@ Dice Roller is a web app that simulates rolling dice. Users can select how many 
 1. Clone the repository
 
 ```bash
-   git clone https://github.com/yourusername/dice-roller.git
+   git clone https://github.com/vee-mukoma/dice-roller.git
 ```
 
 2. Open the project folder
